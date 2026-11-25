@@ -29,7 +29,9 @@ namespace SmartTripArchitect
                 new TripRequest(5, "Phoenix Park", "Sandymount", City.Dublin, 9, RouteType.Budget),
                 new TripRequest(6, "Trinity College", "Grand Canal Dock", City.Dublin, 2.5, RouteType.Scenic),
                 new TripRequest(7, "Cais do Sodré", "Parque das Nações", City.Lisbon, 6, RouteType.Eco),
-                new TripRequest(8, "Phoenix Park", "Sandymount", City.Dublin, 9, RouteType.Eco)
+                new TripRequest(8, "Phoenix Park", "Sandymount", City.Dublin, 9, RouteType.Eco),
+                new TripRequest(9, "Oriente", "Alcântara", City.Lisbon, 12, RouteType.Budget,
+                    TripOption.Insurance, TripOption.LuggageStorage)
             };
 
             foreach (var request in requests)

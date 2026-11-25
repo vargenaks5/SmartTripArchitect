@@ -40,6 +40,8 @@ namespace SmartTripArchitect
                     return new InsuranceDecorator(trip);
                 case TripOption.AudioGuide:
                     return new AudioGuideDecorator(trip, city);
+                case TripOption.LuggageStorage:
+                    return new LuggageStorageDecorator(trip, city);
                 default:
                     throw new ArgumentException("Невідома опція подорожі");
             }

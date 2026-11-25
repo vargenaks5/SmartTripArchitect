@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartTripArchitect.Routes;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
@@ -6,12 +7,17 @@ using System.Text;
 namespace SmartTripArchitect
 {
     class Program
-    { 
+    {
         static void Main()
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-            var planner = new TripPlanner();
+            var planner = new TripPlanner(new Dictionary<RouteType, ITripRouteStrategy>
+            {
+                [RouteType.Fastest] = new FastestRouteStrategy(),
+                [RouteType.Scenic] = new ScenicRouteStrategy(),
+                [RouteType.Budget] = new BudgetRouteStrategy()
+            });
 
             var requests = new[]
             {

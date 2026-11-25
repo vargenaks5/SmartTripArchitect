@@ -47,9 +47,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteEstimate.cs" />
-    <Compile Include="Routes\BudgetRoute.cs" />
-    <Compile Include="Routes\FastestRoute.cs" />
-    <Compile Include="Routes\ScenicRoute.cs" />
+    <Compile Include="Routes\BudgetRouteStrategy.cs" />
+    <Compile Include="Routes\FastestRouteStrategy.cs" />
+    <Compile Include="Routes\ITripRouteStrategy.cs" />
+    <Compile Include="Routes\ScenicRouteStrategy.cs" />
     <Compile Include="RouteType.cs" />
     <Compile Include="TripPlanner.cs" />
     <Compile Include="TripReport.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartTripArchitect.Routes
 {
-    public class FastestRoute
+    public class FastestRouteStrategy : ITripRouteStrategy
     {
         public string Name => "Найшвидший маршрут (таксі)";
 

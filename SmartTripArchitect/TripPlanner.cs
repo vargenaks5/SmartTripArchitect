@@ -9,34 +9,20 @@ namespace SmartTripArchitect
 {
     public class TripPlanner
     {
+        private readonly IReadOnlyDictionary<RouteType, ITripRouteStrategy> routeStrategies;
+
+        public TripPlanner(IReadOnlyDictionary<RouteType, ITripRouteStrategy> routeStrategies)
+        {
+            this.routeStrategies = routeStrategies;
+        }
+
         public TripReport Plan(TripRequest request)
         {
-            RouteEstimate estimate;
-            string description;
-
-            if (request.RouteType == RouteType.Fastest)
-            {
-                var route = new FastestRoute();
-                estimate = route.Estimate(request);
-                description = route.Name;
-            }
-            else if (request.RouteType == RouteType.Scenic)
-            {
-                var route = new ScenicRoute();
-                estimate = route.Estimate(request);
-                description = route.Name;
-            }
-            else if (request.RouteType == RouteType.Budget)
-            {
-                var route = new BudgetRoute();
-                estimate = route.Estimate(request);
-                description = route.Name;
-            }
-            else
-            {
+            if (!routeStrategies.TryGetValue(request.RouteType, out ITripRouteStrategy routeStrategy))
                 throw new ArgumentException("Невідомий тип маршруту");
-            }
 
+            RouteEstimate estimate = routeStrategy.Estimate(request);
+            string description = routeStrategy.Name;
             double cost = estimate.Cost;
 
             if (request.WithInsurance)

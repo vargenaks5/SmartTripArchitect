@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartTripArchitect.Routes
 {
-    public class ScenicRoute
+    public class ScenicRouteStrategy : ITripRouteStrategy
     {
         public string Name => "Мальовничий маршрут (пішки через парки та набережні)";
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartTripArchitect.Routes
 {
-    public class BudgetRoute
+    public class BudgetRouteStrategy : ITripRouteStrategy
     {
         public string Name => "Бюджетний маршрут (громадський транспорт)";
 

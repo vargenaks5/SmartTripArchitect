@@ -1,4 +1,5 @@
-﻿using SmartTripArchitect.Routes;
+﻿using SmartTripArchitect.Cities;
+using SmartTripArchitect.Routes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +13,10 @@ namespace SmartTripArchitect.Trip
         private readonly string routeName;
         private readonly RouteEstimate estimate;
 
-        public BaseTrip(TripRequest request, ITripRouteStrategy routeStrategy)
+        public BaseTrip(TripRequest request, ITripRouteStrategy routeStrategy, CityTariffs tariffs)
         {
             routeName = routeStrategy.Name;
-            estimate = routeStrategy.Estimate(request);
+            estimate = routeStrategy.Estimate(request, tariffs);
         }
 
         public string Description => routeName;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartTripArchitect.Cities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,14 +13,10 @@ namespace SmartTripArchitect.Routes
 
         public string Name => "Екологічний маршрут (велопрокат)";
 
-        public RouteEstimate Estimate(TripRequest request)
+        public RouteEstimate Estimate(TripRequest request, CityTariffs tariffs)
         {
             double duration = request.DistanceKm / BikeSpeedKmh * 60;
-            double cost = 0;
-            if (request.City == City.Lisbon)
-                cost = 2.00 + 0.10 * duration;
-            else if (request.City == City.Dublin)
-                cost = 1.00 + 0.05 * duration;
+            double cost = tariffs.BikeUnlockFee + tariffs.BikePricePerMinute * duration;
             return new RouteEstimate(duration, cost, 0);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartTripArchitect.Cities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,23 +9,16 @@ namespace SmartTripArchitect.Routes
 {
     public class FastestRouteStrategy : ITripRouteStrategy
     {
+        private const double WaitingMinutes = 5;
+        private const double Co2GramsPerKm = 120;
+
         public string Name => "Найшвидший маршрут (таксі)";
 
-        public RouteEstimate Estimate(TripRequest request)
+        public RouteEstimate Estimate(TripRequest request, CityTariffs tariffs)
         {
-            double duration = 0;
-            double cost = 0;
-            if (request.City == City.Lisbon)
-            {
-                duration = request.DistanceKm / 25 * 60 + 5;
-                cost = 3.25 + 0.47 * request.DistanceKm;
-            }
-            else if (request.City == City.Dublin)
-            {
-                duration = request.DistanceKm / 22 * 60 + 5;
-                cost = 4.20 + 1.30 * request.DistanceKm;
-            }
-            return new RouteEstimate(duration, cost, 120 * request.DistanceKm);
+            double duration = request.DistanceKm / tariffs.TaxiSpeedKmh * 60 + WaitingMinutes;
+            double cost = tariffs.TaxiStartFare + tariffs.TaxiPricePerKm * request.DistanceKm;
+            return new RouteEstimate(duration, cost, Co2GramsPerKm * request.DistanceKm);
         }
     }
 }

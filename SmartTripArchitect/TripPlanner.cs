@@ -1,4 +1,5 @@
-﻿using SmartTripArchitect.Routes;
+﻿using SmartTripArchitect.Cities;
+using SmartTripArchitect.Routes;
 using SmartTripArchitect.Trip;
 using System;
 using System.Collections.Generic;
@@ -22,26 +23,27 @@ namespace SmartTripArchitect
             if (!routeStrategies.TryGetValue(request.RouteType, out ITripRouteStrategy routeStrategy))
                 throw new ArgumentException("Невідомий тип маршруту");
 
-            ITripComponent trip = new BaseTrip(request, routeStrategy);
+            CityTariffs tariffs = CityTariffs.For(request.City);
+            ITripComponent trip = new BaseTrip(request, routeStrategy, tariffs);
 
             foreach (TripOption option in request.Options)
-                trip = AddOption(trip, option, request.City);
+                trip = AddOption(trip, option, tariffs);
 
             string routeTitle = $"{request.StartPoint} → {request.Destination} ({request.City})";
             return new TripReport(request.Id, routeTitle, trip.Description,
                 trip.DurationMinutes, trip.Cost, trip.Co2Grams);
         }
 
-        private static ITripComponent AddOption(ITripComponent trip, TripOption option, City city)
+        private static ITripComponent AddOption(ITripComponent trip, TripOption option, CityTariffs tariffs)
         {
             switch (option)
             {
                 case TripOption.Insurance:
                     return new InsuranceDecorator(trip);
                 case TripOption.AudioGuide:
-                    return new AudioGuideDecorator(trip, city);
+                    return new AudioGuideDecorator(trip, tariffs.AudioGuidePrice);
                 case TripOption.LuggageStorage:
-                    return new LuggageStorageDecorator(trip, city);
+                    return new LuggageStorageDecorator(trip, tariffs.LuggageStoragePrice);
                 default:
                     throw new ArgumentException("Невідома опція подорожі");
             }

@@ -8,26 +8,14 @@ namespace SmartTripArchitect.Trip
 {
     public class AudioGuideDecorator : TripOptionDecorator
     {
-        private readonly City city;
+        private readonly double price;
 
-        public AudioGuideDecorator(ITripComponent inner, City city) : base(inner)
+        public AudioGuideDecorator(ITripComponent inner, double price) : base(inner)
         {
-            this.city = city;
+            this.price = price;
         }
 
         public override string Description => Inner.Description + " + аудіогід";
-
-        public override double Cost
-        {
-            get
-            {
-                double price = 0;
-                if (city == City.Lisbon)
-                    price = 8.00;
-                else if (city == City.Dublin)
-                    price = 10.00;
-                return Inner.Cost + price;
-            }
-        }
+        public override double Cost => Inner.Cost + price;
     }
 }

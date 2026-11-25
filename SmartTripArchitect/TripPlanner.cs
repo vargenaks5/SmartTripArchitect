@@ -1,4 +1,5 @@
 ﻿using SmartTripArchitect.Routes;
+using SmartTripArchitect.Trip;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,9 @@ namespace SmartTripArchitect
             if (!routeStrategies.TryGetValue(request.RouteType, out ITripRouteStrategy routeStrategy))
                 throw new ArgumentException("Невідомий тип маршруту");
 
-            RouteEstimate estimate = routeStrategy.Estimate(request);
-            string description = routeStrategy.Name;
-            double cost = estimate.Cost;
+            ITripComponent trip = new BaseTrip(request, routeStrategy);
+            string description = trip.Description;
+            double cost = trip.Cost;
 
             if (request.WithInsurance)
             {
@@ -41,7 +42,7 @@ namespace SmartTripArchitect
 
             string routeTitle = $"{request.StartPoint} → {request.Destination} ({request.City})";
             return new TripReport(request.Id, routeTitle, description,
-                estimate.DurationMinutes, cost, estimate.Co2Grams);
+                trip.DurationMinutes, cost, trip.Co2Grams);
         }
     }
 }

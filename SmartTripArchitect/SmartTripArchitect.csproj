@@ -53,11 +53,15 @@
     <Compile Include="Routes\ITripRouteStrategy.cs" />
     <Compile Include="Routes\ScenicRouteStrategy.cs" />
     <Compile Include="RouteType.cs" />
+    <Compile Include="TripOption.cs" />
     <Compile Include="TripPlanner.cs" />
     <Compile Include="TripReport.cs" />
     <Compile Include="TripRequest.cs" />
+    <Compile Include="Trip\AudioGuideDecorator.cs" />
     <Compile Include="Trip\BaseTrip.cs" />
+    <Compile Include="Trip\InsuranceDecorator.cs" />
     <Compile Include="Trip\ITripComponent.cs" />
+    <Compile Include="Trip\TripOptionDecorator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

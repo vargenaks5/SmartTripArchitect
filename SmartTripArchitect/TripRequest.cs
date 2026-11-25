@@ -14,11 +14,10 @@ namespace SmartTripArchitect
         public City City { get; set; }
         public double DistanceKm { get; set; }
         public RouteType RouteType { get; set; }
-        public bool WithInsurance { get; set; }
-        public bool WithAudioGuide { get; set; }
+        public List<TripOption> Options { get; }
 
         public TripRequest(int id, string startPoint, string destination, City city,
-            double distanceKm, RouteType routeType, bool withInsurance, bool withAudioGuide)
+            double distanceKm, RouteType routeType, params TripOption[] options)
         {
             Id = id;
             StartPoint = startPoint;
@@ -26,8 +25,7 @@ namespace SmartTripArchitect
             City = city;
             DistanceKm = distanceKm;
             RouteType = routeType;
-            WithInsurance = withInsurance;
-            WithAudioGuide = withAudioGuide;
+            Options = new List<TripOption>(options);
         }
     }
 }

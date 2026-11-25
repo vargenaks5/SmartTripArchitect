@@ -1,0 +1,9 @@
+Шаг 02
+Сообщение коммита: Extract route calculations into methods and separate classes
+
+Что сделать с файлами (A – добавить новый, M – заменить содержимое целиком, D – удалить, R – переименовать: старое имя → новое):
+A	SmartTripArchitect/RouteEstimate.cs
+A	SmartTripArchitect/Routes/BudgetRoute.cs
+A	SmartTripArchitect/Routes/FastestRoute.cs
+A	SmartTripArchitect/Routes/ScenicRoute.cs
+M	SmartTripArchitect/TripPlanner.cs

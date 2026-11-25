@@ -1,0 +1,10 @@
+Шаг 03
+Сообщение коммита: Introduce ITripRouteStrategy and inject strategies into TripPlanner
+
+Что сделать с файлами (A – добавить новый, M – заменить содержимое целиком, D – удалить, R – переименовать: старое имя → новое):
+M	SmartTripArchitect/Program.cs
+R093	SmartTripArchitect/Routes/BudgetRoute.cs	SmartTripArchitect/Routes/BudgetRouteStrategy.cs
+R092	SmartTripArchitect/Routes/FastestRoute.cs	SmartTripArchitect/Routes/FastestRouteStrategy.cs
+A	SmartTripArchitect/Routes/ITripRouteStrategy.cs
+R087	SmartTripArchitect/Routes/ScenicRoute.cs	SmartTripArchitect/Routes/ScenicRouteStrategy.cs
+M	SmartTripArchitect/TripPlanner.cs

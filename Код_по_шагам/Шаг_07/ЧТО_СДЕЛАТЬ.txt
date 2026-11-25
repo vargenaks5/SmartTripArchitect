@@ -1,0 +1,8 @@
+Шаг 07
+Сообщение коммита: Add luggage storage option
+
+Что сделать с файлами (A – добавить новый, M – заменить содержимое целиком, D – удалить, R – переименовать: старое имя → новое):
+M	SmartTripArchitect/Program.cs
+A	SmartTripArchitect/Trip/LuggageStorageDecorator.cs
+M	SmartTripArchitect/TripOption.cs
+M	SmartTripArchitect/TripPlanner.cs

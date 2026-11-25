@@ -1,0 +1,7 @@
+Шаг 04
+Сообщение коммита: Add Eco route strategy
+
+Что сделать с файлами (A – добавить новый, M – заменить содержимое целиком, D – удалить, R – переименовать: старое имя → новое):
+M	SmartTripArchitect/Program.cs
+M	SmartTripArchitect/RouteType.cs
+A	SmartTripArchitect/Routes/EcoRouteStrategy.cs

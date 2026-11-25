@@ -1,0 +1,13 @@
+Шаг 01
+Сообщение коммита: Initial implementation of trip planner for Lisbon and Dublin
+
+Что сделать с файлами (A – добавить новый, M – заменить содержимое целиком, D – удалить, R – переименовать: старое имя → новое):
+A	.gitignore
+A	SmartTripArchitect.sln
+A	SmartTripArchitect/City.cs
+A	SmartTripArchitect/Program.cs
+A	SmartTripArchitect/RouteType.cs
+A	SmartTripArchitect/SmartTripArchitect.csproj
+A	SmartTripArchitect/TripPlanner.cs
+A	SmartTripArchitect/TripReport.cs
+A	SmartTripArchitect/TripRequest.cs

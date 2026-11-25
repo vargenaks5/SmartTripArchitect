@@ -1,0 +1,11 @@
+Шаг 06
+Сообщение коммита: Move trip options into decorators and replace flags with option list
+
+Что сделать с файлами (A – добавить новый, M – заменить содержимое целиком, D – удалить, R – переименовать: старое имя → новое):
+M	SmartTripArchitect/Program.cs
+A	SmartTripArchitect/Trip/AudioGuideDecorator.cs
+A	SmartTripArchitect/Trip/InsuranceDecorator.cs
+A	SmartTripArchitect/Trip/TripOptionDecorator.cs
+A	SmartTripArchitect/TripOption.cs
+M	SmartTripArchitect/TripPlanner.cs
+M	SmartTripArchitect/TripRequest.cs

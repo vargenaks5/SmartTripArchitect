@@ -10,6 +10,7 @@ namespace SmartTripArchitect
     {
         Fastest,
         Scenic,
-        Budget
+        Budget,
+        Eco
     }
 }

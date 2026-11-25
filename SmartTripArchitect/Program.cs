@@ -16,7 +16,8 @@ namespace SmartTripArchitect
             {
                 [RouteType.Fastest] = new FastestRouteStrategy(),
                 [RouteType.Scenic] = new ScenicRouteStrategy(),
-                [RouteType.Budget] = new BudgetRouteStrategy()
+                [RouteType.Budget] = new BudgetRouteStrategy(),
+                [RouteType.Eco] = new EcoRouteStrategy()
             });
 
             var requests = new[]
@@ -26,7 +27,9 @@ namespace SmartTripArchitect
                 new TripRequest(3, "Praça do Comércio", "Jardim da Estrela", City.Lisbon, 5, RouteType.Scenic, false, true),
                 new TripRequest(4, "Dublin Airport", "Temple Bar", City.Dublin, 11, RouteType.Fastest, true, true),
                 new TripRequest(5, "Phoenix Park", "Sandymount", City.Dublin, 9, RouteType.Budget, false, false),
-                new TripRequest(6, "Trinity College", "Grand Canal Dock", City.Dublin, 2.5, RouteType.Scenic, false, false)
+                new TripRequest(6, "Trinity College", "Grand Canal Dock", City.Dublin, 2.5, RouteType.Scenic, false, false),
+                new TripRequest(7, "Cais do Sodré", "Parque das Nações", City.Lisbon, 6, RouteType.Eco, false, false),
+                new TripRequest(8, "Phoenix Park", "Sandymount", City.Dublin, 9, RouteType.Eco, false, false)
             };
 
             foreach (var request in requests)

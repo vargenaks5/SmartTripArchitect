@@ -1,7 +1,0 @@
-Шаг 05
-Сообщение коммита: Introduce ITripComponent and BaseTrip
-
-Что сделать с файлами (A – добавить новый, M – заменить содержимое целиком, D – удалить, R – переименовать: старое имя → новое):
-A	SmartTripArchitect/Trip/BaseTrip.cs
-A	SmartTripArchitect/Trip/ITripComponent.cs
-M	SmartTripArchitect/TripPlanner.cs
